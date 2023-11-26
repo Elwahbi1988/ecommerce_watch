@@ -1,0 +1,19 @@
+<div class="container" *ngIf="orderDetails">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">Order ID:{{orderId}}</div>
+        <div class="card-body text-sm-start">
+<ul class="list-group">
+  <li class="list-group-item">Customer Id: {{orderDetails.customer.id}} </li>
+  <li class="list-group-item">Customer Name: {{orderDetails.customer.name}} </li>
+  <li class="list-group-item">Customer Email: {{orderDetails.customer.email}}</li>
+</ul>
+        </div>
+    </div>
+
+  </div>
+  <div class="col-md-6">
+
+  </div>
+</div>

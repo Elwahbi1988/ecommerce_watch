@@ -1,0 +1,44 @@
+{
+  "products":[
+    {
+      "id":1,
+      "sku":1,
+      "image": "photo1.jpg",
+      "name": "bentley",
+     "description": "montre cuire luxury",
+     "longDescription": "montre or cuire frande qualité",
+      "price":3000,
+      "promotion":20,
+      "quantity": 5,
+      "selected": true,
+      "available": true
+    },
+    {
+      "id":2,
+      "sku":2,
+      "image": "photo2.jpg",
+      "name": "patck phillipes",
+     "description": "montre bracelet",
+     "longDescription": "montre or grande qualité",
+      "price":5000,
+      "promotion":10,
+      "quantity": 20,
+      "selected": true,
+      "available": true
+    },
+    {
+      "id":3,
+      "sku":3,
+      "image": "photo3.jpg",
+      "name": "Monblanc",
+     "description": "montre bracelet argent",
+     "longDescription": "montre argent grande qualité",
+      "price":2000,
+      "promotion":30,
+      "quantity": 15,
+      "selected": true,
+      "available": true
+    }
+  ]
+
+}

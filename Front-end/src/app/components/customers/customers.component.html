@@ -1,0 +1,28 @@
+<div class="container">
+  <ng-container *ngIf="customers">
+      <div class="container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>firstName</th>
+              <th>lastName</th>
+              <th>email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let c of customers.data">
+              <td>{{c.id}}</td>
+              <td>{{c.firstName}}</td>
+              <td>{{c.lastName}}</td>
+              <td>{{c.email}}</td>
+              <td>
+                <button class="btn btn-success" (click)="getOrders(c)">Orders</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </ng-container>
+</div>
+

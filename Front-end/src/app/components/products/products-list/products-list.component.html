@@ -1,0 +1,67 @@
+<div class="container">
+  <ng-container *ngIf="products$ | async as result" [ngSwitch]="result.dataState">
+    <ng-container *ngSwitchCase="DataStateEnum.LOADING">
+      Loading.....
+    </ng-container>
+    <ng-container *ngSwitchCase="DataStateEnum.LOADED">
+      <div class="container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>SKU</th>
+              <th>IMAGE</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>LongDescription</th>
+              <th>Price</th>
+              <th>Promotion</th>
+              <th>Quantity</th>
+              <th>Selected</th>
+              <th>Available</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let p of result.data">
+              <td>{{p._id}}</td>
+              <td>{{p.sku}}</td>
+              <td>{{p.productImage}}</td>
+              <td>{{p.productName}}</td>
+              <td>{{p.shortDescription}}</td>
+              <td>{{p.longDescription}}</td>
+              <td>{{p.price}}</td>
+              <td>{{p.discountPrice}}</td>
+              <td>{{p.quantity}}</td>
+              <td>{{p.selected}}</td>
+              <td>{{p.active}}</td>
+              <td>
+                <button (click)="onSelect(p)" [ngClass]="p.selected ? 'btn-success' : 'btn-danger'" class="btn btn-sm">
+                  <span *ngIf="p.selected">Unselect</span>
+                  <span *ngIf="!p.selected">Select</span>
+                </button>
+              </td>
+              <td>
+                <button class="btn btn-danger" (click)="onDelete(p)">
+                  <span class="fa fa-trash-o"></span>Delete
+                </button>
+              </td>
+              <td>
+                <button class="btn btn-danger" (click) = editProduct(p)>
+                  Edit
+                  <span class="fa fa-edit"></span>
+                </button>
+
+              </td>
+              <td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </ng-container>
+    <ng-container *ngSwitchCase="DataStateEnum.ERROR">
+      Error.....
+    </ng-container>
+  </ng-container>
+</div>
