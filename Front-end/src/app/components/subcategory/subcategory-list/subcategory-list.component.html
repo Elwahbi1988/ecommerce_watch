@@ -1,0 +1,54 @@
+<div class="container">
+  <ng-container *ngIf="subcategory$ | async as result" [ngSwitch]="result.dataState">
+    <ng-container *ngSwitchCase="DataStateSubcategoryEnum.LOADING">
+      Loading.....
+    </ng-container>
+    <ng-container *ngSwitchCase="DataStateSubcategoryEnum.LOADED">
+      <div class="container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Subcategory_Name</th>
+              <th>Active</th>
+              <th>Selected</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let sub of result.data">
+              <td>{{sub.id}}</td>
+              <td>{{sub.subCategoryName}}</td>
+              <td>{{sub.active}}</td>
+              <td>{{sub.categoryId}}</td>
+              <td>{{sub.selected}}</td>
+              <td>
+                <button (click)="onSelectSubcategory(sub)" [ngClass]="sub.selected ? 'btn-success' : 'btn-danger'" class="btn btn-sm">
+                  <span *ngIf="sub.selected">Unselect</span>
+                  <span *ngIf="!sub.selected">Select</span>
+                </button>
+              </td>
+              <td>
+                <button class="btn btn-danger" (click)="onDeleteSubcategory(sub)">
+                  <span class="fa fa-trash-o"></span>Delete
+                </button>
+              </td>
+              <td>
+                <button class="btn btn-danger" (click)="editSubcategory(sub)">
+                  <span class="fa fa-edit"></span>Edit
+                </button>
+
+
+              </td>
+              <td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </ng-container>
+    <ng-container *ngSwitchCase="DataStateSubcategoryEnum.ERROR">
+      Error.....
+    </ng-container>
+  </ng-container>
+</div>

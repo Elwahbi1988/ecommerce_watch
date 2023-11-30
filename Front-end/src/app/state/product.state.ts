@@ -6,9 +6,18 @@ export enum ProductActionTypes{
   GET_AVAILABLE_PRODUCT="[Product] Get Available products",
   SEARCH_PRODUCT="[Product] Search products",
   NEW_PRODUCT="[Product] New products",
-  SELECT_PRODUCT="[Product] Select product",
-  EDIT_PRODUCT="[Product] Edit product",
+  SELECT_PRODUCT="[Product] Select products",
+  EDIT_PRODUCT="[Product] Edit products",
   DELETE_PRODUCT="[Product] Delete product",
+
+  GET_ALL_CATEGORY="[Category] Get All category",
+  GET_SELECTED_CATEGORY="[Category] Get Selected category",
+  GET_AVAILABLE_CATEGORY="[Category] Get Available category",
+  SEARCH_CATEGORY="[Category] Search category",
+  NEW_CATEGORY="[Category] New category",
+  SELECT_CATEGORY="[Category] Select category",
+  EDIT_CATEGORY="[Category] Edit category",
+  DELETE_CATEGORY="[Category] Delete category",
 }
 
 export interface ActionEvent{

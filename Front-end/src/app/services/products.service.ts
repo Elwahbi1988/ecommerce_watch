@@ -16,7 +16,7 @@ export class ProductsService {
     return this.http.get<any>(this.host + "v1/products");
   }
   getSelectProducts(): Observable<Product[]>{
-    return this.http.get<Product[]>(this.host + "v1/products/search");
+    return this.http.get<Product[]>(this.host + "v1/products");
   }
   getAvailableProducts(): Observable<Product[]>{
 return this.http.get<Product[]>(this.host + "v1/products");
@@ -26,12 +26,12 @@ return this.http.get<Product[]>(this.host + "v1/products");
       }
 select(product:Product): Observable<Product>{
   product.selected=!product.selected
-        return this.http.put<Product>(this.host+"v1/pdt/product/"+product._id,product);
+        return this.http.put<Product>(this.host+"v1/products/"+product._id,product);
           }
 
 deleteProduct(product:Product): Observable<void>{
             product.selected=!product.selected
-                  return this.http.delete<void>(this.host+"v1/product/"+product._id);
+                  return this.http.delete<void>(this.host+"v1/products/"+product._id);
                     }
 
 save(product:Product): Observable<any>{

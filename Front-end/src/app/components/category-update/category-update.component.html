@@ -1,0 +1,26 @@
+<div class="container" *ngIf="categoryFormGroup">
+  <form [formGroup]="categoryFormGroup">
+
+    <div class="form-group">
+    <label>ID</label>
+    <input type="text" class="form-control" formControlName="id">
+  </div>
+    <div class="form-group">
+      <label>CategoryName</label>
+      <input type="text" class="form-control" formControlName="categoryName"
+      [ngClass]="{'is-invalid':submitted && categoryFormGroup.controls['categoryName'].errors}">
+    <div *ngIf="submitted && categoryFormGroup.controls['categoryName'].errors" class="invalid-feedback" >
+      <div *ngIf="categoryFormGroup.controls['categoryName'].errors?.['required']">Name is Required</div>"
+    </div>
+  </div>
+          <div class="form-group">
+            <label>Selected</label>
+            <input type="checkbox" formControlName="selected" class="from-check" >
+          </div>
+            <div class="form-group">
+              <label>Active</label>
+              <input type="checkbox" formControlName="available" class="from-check" >
+              </div>
+    <button class="btn btn-success" (click)="editCategory()">Save</button>
+  </form>
+</div>

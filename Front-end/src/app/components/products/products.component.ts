@@ -82,7 +82,7 @@ export class ProductsComponent implements OnInit {
 
 editProduct(p: any) {
   console.log(p);
-  this.router.navigateByUrl("/update-product/" + p._id);
+  this.router.navigateByUrl("/update-product/" + p.id);
 }
 
 

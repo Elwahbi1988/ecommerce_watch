@@ -16,6 +16,15 @@ import { ProductsListComponent } from './components/products/products-list/produ
 import { CustomersComponent } from './components/customers/customers.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { OrderDetailsComponent } from './components/order-details/order-details.component';
+import { CategoryComponent } from './components/category/category.component';
+import { CategoryListComponent } from './components/category/category-list/category-list.component';
+import { CategoryNavBarComponent } from './components/category/category-nav-bar/category-nav-bar.component';
+import { SubcategoryComponent } from './components/subcategory/subcategory.component';
+import { SubcategoryListComponent } from './components/subcategory/subcategory-list/subcategory-list.component';
+import { SubcategoryNavBarComponent } from './components/subcategory/subcategory-nav-bar/subcategory-nav-bar.component';
+import { CategoryAddComponent } from './components/category-add/category-add.component';
+import { CategoryUpdateComponent } from './components/category-update/category-update.component';
+import { SubcategoryAddComponent } from './components/subcategory-add/subcategory-add.component';
 
 
 @NgModule({
@@ -31,7 +40,16 @@ import { OrderDetailsComponent } from './components/order-details/order-details.
     ProductsListComponent,
     CustomersComponent,
     OrdersComponent,
-    OrderDetailsComponent
+    OrderDetailsComponent,
+    CategoryComponent,
+    CategoryListComponent,
+    CategoryNavBarComponent,
+    SubcategoryComponent,
+    SubcategoryListComponent,
+    SubcategoryNavBarComponent,
+    CategoryAddComponent,
+    CategoryUpdateComponent,
+    SubcategoryAddComponent,
   ],
   imports: [
     BrowserModule,

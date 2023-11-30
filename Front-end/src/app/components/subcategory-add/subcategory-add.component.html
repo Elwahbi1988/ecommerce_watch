@@ -1,0 +1,43 @@
+<div class="container" *ngIf="subcategoryFormGroup">
+  <form [formGroup]="subcategoryFormGroup">
+    <div class="form-group">
+      <label>ID</label>
+      <input type="text" class="form-control" formControlName="id">
+      </div>
+    <div class="form-group">
+      <label>Subcategory Name</label>
+      <input type="text" class="form-control" formControlName="subcategoryName"
+      [ngClass]="{'is-invalid':submitted && subcategoryFormGroup.controls['subcategoryName'].errors}">
+    <div *ngIf="submitted && subcategoryFormGroup.controls['subcategoryName'].errors" class="invalid-feedback" >
+      <div *ngIf="subcategoryFormGroup.controls['subcategoryName'].errors?.['required']">Name is Required</div>"
+    </div>
+  </div>
+        <div class="form-group">
+            <label class="category" >CategoryID</label>
+
+
+          <label>CategoryID</label>
+          <input type="text" class="form-control" formControlName="categoryId" [value]="textFieldValue">
+          </div>
+
+            <select [(ngModel)]="selectedOption" aria-label="label for the select" (change)="updateTextField()">
+            <option *ngFor="let c of cats" value="{{c._id}}">{{c.categoryName}}</option>
+          </select>
+
+
+
+
+          <div class="form-group">
+            <label>Selected</label>
+            <input type="checkbox" formControlName="selected" class="from-check" >
+          </div>
+            <div class="form-group">
+              <label>Active</label>
+              <input type="checkbox" formControlName="available" class="from-check" >
+              </div>
+  <button class="btn btn-success"(click)="OneSaveSubcategory()">Save</button>
+  </form>
+</div>
+
+
+

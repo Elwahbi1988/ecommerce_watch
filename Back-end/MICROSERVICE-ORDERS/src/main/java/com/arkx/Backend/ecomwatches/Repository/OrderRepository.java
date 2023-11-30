@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository
 public interface OrderRepository extends MongoRepository<Order,String> {
-@RestResource(path="/byCustomerId")
-    List<Order> findByCustomerId(@Param("customerId")Long customerId);
+
+    List<Order> findByCustomerId(Long customerId);
 
 }

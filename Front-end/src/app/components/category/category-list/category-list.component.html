@@ -1,0 +1,54 @@
+<div class="container">
+  <ng-container *ngIf="category$ | async as result" [ngSwitch]="result.dataState">
+    <ng-container *ngSwitchCase="DataStateCategoryEnum.LOADING">
+      Loading.....
+    </ng-container>
+    <ng-container *ngSwitchCase="DataStateCategoryEnum.LOADED">
+      <div class="container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>category_Name</th>
+              <th>Active</th>
+              <th>Selected</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cat of result.data">
+              <td>{{cat.id}}</td>
+              <td>{{cat.categoryName}}</td>
+              <td>{{cat.active}}</td>
+              <td>{{cat.selected}}</td>
+              <td>
+                <button (click)="onDeleteCategory(cat)" [ngClass]="cat.selected ? 'btn-success' : 'btn-danger'" class="btn btn-sm">
+                  <span *ngIf="cat.selected">Unselect</span>
+                  <span *ngIf="!cat.selected">Select</span>
+                </button>
+              </td>
+              <td>
+                <button class="btn btn-danger" (click)="onDeleteCategory(cat)">
+                  <span class="fa fa-trash-o"></span>Delete
+                </button>
+              </td>
+              <td>
+                <button class="btn btn-danger" (click) = editCategory(cat)>
+                  Edit
+                  <span class="fa fa-edit"></span>
+                </button>
+
+              </td>
+              <td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </ng-container>
+    <ng-container *ngSwitchCase="DataStateCategoryEnum.ERROR">
+      Error.....
+    </ng-container>
+  </ng-container>
+</div>
+

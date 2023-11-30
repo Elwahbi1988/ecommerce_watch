@@ -8,7 +8,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -46,7 +48,14 @@ public class OrderService {
      orderRepository.deleteById(id);
  }
 
-}
+
+        public List<Order> findByCustomerId (Long customerId){
+            // Utilisez la méthode du repository pour récupérer les commandes par customerId
+            List<Order> orders = orderRepository.findByCustomerId(customerId);
+            return orders;
+        }
+    }
+
 
 
 

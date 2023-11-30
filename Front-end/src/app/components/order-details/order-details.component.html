@@ -5,6 +5,9 @@
         <div class="card-header">Order ID:{{orderId}}</div>
         <div class="card-body text-sm-start">
 <ul class="list-group">
+  <li class="list-group-item">Order Id: {{orderDetails.id}} </li>
+  <li class="list-group-item">Date: {{orderDetails.createdAt | date:'dd/MM/yyyy'}} </li>
+  <li class="list-group-item">Status: {{orderDetails.status}}</li>
   <li class="list-group-item">Customer Id: {{orderDetails.customer.id}} </li>
   <li class="list-group-item">Customer Name: {{orderDetails.customer.name}} </li>
   <li class="list-group-item">Customer Email: {{orderDetails.customer.email}}</li>
@@ -14,6 +17,23 @@
 
   </div>
   <div class="col-md-6">
-
+    <div class="card-header">Product Items</div>
+<div class="card-body">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Product Id</th> <th>Product Name</th> <th>Quantity</th> <th>Price</th> <th>Discount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngfor="let pi of orderDetails.quantity.productImage">
+        <td>{{pi.product.id}}</td>
+        <td>{{pi.product.name}}</td>
+        <td>{{pi.quantity}}</td>
+        <td>{{pi.price}}</td>
+        <td>{{pi.discountPrice}}</td>
+      </tr>
+    </tbody>
+  </table>
   </div>
 </div>

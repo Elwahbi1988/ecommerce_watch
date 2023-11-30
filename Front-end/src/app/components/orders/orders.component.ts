@@ -17,7 +17,7 @@ customerId!:number;
     this.customerId=route.snapshot.params['customerId'];
   }
   ngOnInit(): void {
-    this.http.get("http//localhost:8090/Order-Microservice/order-service/fullOrder/"+this.customerId)
+    this.http.get("http//localhost:8082/v1/oders")
       .subscribe({
         next:(data)=>{
           this.orders = data;
