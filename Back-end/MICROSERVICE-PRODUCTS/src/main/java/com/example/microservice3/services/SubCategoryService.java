@@ -1,6 +1,8 @@
 package com.example.microservice3.services;
 
 import com.example.microservice3.dto.*;
+import com.example.microservice3.entities.Category;
+import com.example.microservice3.entities.SubCategory;
 
 import java.util.List;
 
@@ -22,5 +24,9 @@ public interface SubCategoryService {
 
     //    //..............................Delete..............................
         DeleteSubCategoryDTO deleteSubCategory(Long id);
+
+
+
+        public List<SubCategory> getSubCategoriesByCategoryId(Long categoryId);
 
 }

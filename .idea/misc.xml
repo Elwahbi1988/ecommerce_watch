@@ -10,6 +10,12 @@
         <option value="$PROJECT_DIR$/MICROSERVICE-GETWAY/pom.xml" />
         <option value="$PROJECT_DIR$/MICROSERVICE-ORDERS/pom.xml" />
         <option value="$PROJECT_DIR$/MICROSERVICE-USERS/pom.xml" />
+        <option value="$PROJECT_DIR$/Back-end/pom.xml" />
+        <option value="$PROJECT_DIR$/Back-end/MICROSERVICE-EUREKA/pom.xml" />
+        <option value="$PROJECT_DIR$/Back-end/MICROSERVICE-GETWAY/pom.xml" />
+        <option value="$PROJECT_DIR$/Back-end/MICROSERVICE-ORDERS/pom.xml" />
+        <option value="$PROJECT_DIR$/Back-end/MICROSERVICE-PRODUCTS/pom.xml" />
+        <option value="$PROJECT_DIR$/Back-end/MICROSERVICE-USERS/pom.xml" />
       </list>
     </option>
   </component>

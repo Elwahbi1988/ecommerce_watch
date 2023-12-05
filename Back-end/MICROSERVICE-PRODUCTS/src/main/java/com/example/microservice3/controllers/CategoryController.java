@@ -7,7 +7,9 @@ import com.example.microservice3.controllers.out.CategoryResponse;
 import com.example.microservice3.dto.CategoryDTO;
 import com.example.microservice3.dto.DeleteCategoryDTO;
 import com.example.microservice3.dto.UpdateCategoryDTO;
+import com.example.microservice3.entities.Category;
 import com.example.microservice3.services.CategoryService;
+import com.example.microservice3.services.SubCategoryService;
 import io.jsonwebtoken.Claims;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -17,8 +19,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLOutput;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import static com.example.microservice3.utils.CategoryMapper.mapCategoryRequestToCategoryDTO;
 
@@ -30,6 +34,7 @@ import static com.example.microservice3.utils.CategoryMapper.mapCategoryRequestT
 public class CategoryController {
     private CategoryService categoryService;
     private JwtUtils jwtUtils;
+    private SubCategoryService subcategoryService;
 
     //.................................Create .................................
     @PostMapping("/categories")
@@ -40,7 +45,7 @@ public class CategoryController {
                 if (isExistCategory == false) {
 
                     CategoryResponse categoryResponse = CategoryResponse.builder()
-                            .status(201)
+                            //.status(201)
                             .message("Category created successfully")
                             .build();
 
@@ -108,19 +113,24 @@ public class CategoryController {
     }
     //.................................Search By Query.................................
 
-    @GetMapping(value = "/categories", params = "query")
+   /* @GetMapping(value = "/categories", params = "query")
     public ResponseEntity<CategoriesResponse> searchCategoriesByQuery(
             @RequestParam(name = "query") String query,
-            @RequestParam(name = "page", required = false) int page) {
+            @RequestParam(name = "page", required = false, defaultValue = "0") int page) {
         List<CategoryDTO> categories = categoryService.searchCategoriesByQuery(page, query);
         CategoriesResponse categoriesResponse = CategoriesResponse.builder()
-                .status(201)
+                //.status(201)
                 .data(categories)
                 .build();
         return new ResponseEntity<>(categoriesResponse, HttpStatus.OK);
 
-    }
-
+    }*/
+   @GetMapping(value = "/categories/query", params = "query")
+   public ResponseEntity<List<CategoryDTO>> searchCategoriesByQuery(
+           @RequestParam(name = "query") String query) {
+       List<CategoryDTO> categoryDTOS = categoryService.searchCategoriesByQuery(query);
+       return new ResponseEntity<>(categoryDTOS, HttpStatus.OK);
+   }
 
     //.................................Get By ID.................................
 
@@ -152,19 +162,19 @@ public class CategoryController {
 
         if (updateCategoryDTO.isUpdated()) {
             CategoryResponse response = CategoryResponse.builder()
-                    .status(200)
+                    //.status(200)
                     .message("Category updated successfully")
                     .build();
             return new ResponseEntity<>(response, HttpStatus.OK);
         } else if (updateCategoryDTO.isForBidden()) {
             CategoryResponse response = CategoryResponse.builder()
-                    .status(403)
+                   // .status(403)
                     .message("You don't have enough privilege")
                     .build();
             return new ResponseEntity<>(response, HttpStatus.FORBIDDEN);
         } else if (updateCategoryDTO.isNotFound()) {
             CategoryResponse response = CategoryResponse.builder()
-                    .status(404)
+                   // .status(404)
                     .message("Invalid category ID")
                     .build();
             return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
@@ -177,39 +187,19 @@ public class CategoryController {
 
     //..............................Delete..............................
 
+    /*
     @DeleteMapping("/categories/{id}")
-    public ResponseEntity<CategoryResponse> deleteCategory(@PathVariable Long id) {
-        DeleteCategoryDTO deleteCategoryDTO = categoryService.deleteCategory(id);
+    public void deleteCategory(@PathVariable Long id) {
 
-        if (deleteCategoryDTO.isDeleted()) {
-            CategoryResponse response = CategoryResponse.builder()
-                    .status(200)
-                    .message("Category deleted successfully")
-                    .build();
-            return new ResponseEntity<>(response, HttpStatus.OK);
-        } else if (deleteCategoryDTO.isBadRequest()) {
-            CategoryResponse response = CategoryResponse.builder()
-                    .status(400)
-                    .message("Subcategories attached, cannot delete this category")
-                    .build();
-            return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
-        } else if (deleteCategoryDTO.isForBidden()) {
-            CategoryResponse response = CategoryResponse.builder()
-                    .status(403)
-                    .message("You don't have enough privilege")
-                    .build();
-            return new ResponseEntity<>(response, HttpStatus.FORBIDDEN);
-        } else if (deleteCategoryDTO.isNotFound()) {
-            CategoryResponse response = CategoryResponse.builder()
-                    .status(404)
-                    .message("Invalid category id")
-                    .build();
-            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
-        } else if (deleteCategoryDTO.isNoContent()) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        Optional<Category> cat = categoryService.getCategoryById2(id);
+        if(cat.isPresent()){
+            subcategoryService.supprimerParCategory(cat.get());
+            System.out.println("all subcategories are deleted");
+            categoryService.deleteCategory(id);
         }
-        return null;
-    }
+        */
+
+
 
 
 }

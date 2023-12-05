@@ -26,9 +26,5 @@ export class CategoryListComponent implements OnInit {
     onDeleteCategory(cat: Category) {
       this.categoryEventEmitter.emit(
         {type: CategoryActionTypes.DELETE_CATEGORY,payload:cat});
-    }
-    onSelectCategory(cat: Category) {
-      this.categoryEventEmitter.emit(
-        {type: CategoryActionTypes.SELECT_CATEGORY,payload:cat});
-    }
+      }
   }

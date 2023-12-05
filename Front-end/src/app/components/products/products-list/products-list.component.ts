@@ -28,8 +28,5 @@ export class ProductsListComponent implements OnInit {
       this.productsEventEmitter.emit(
         {type: ProductActionTypes.DELETE_PRODUCT,payload:p});
     }
-    onSelect(p: Product) {
-      this.productsEventEmitter.emit(
-        {type: ProductActionTypes.SELECT_PRODUCT,payload:p});
-    }
+
   }

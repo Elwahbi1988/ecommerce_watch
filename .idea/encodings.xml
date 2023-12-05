@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Back-end/MICROSERVICE-EUREKA/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Back-end/MICROSERVICE-EUREKA/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Back-end/MICROSERVICE-GETWAY/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Back-end/MICROSERVICE-GETWAY/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Back-end/MICROSERVICE-ORDERS/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Back-end/MICROSERVICE-ORDERS/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Back-end/MICROSERVICE-PRODUCTS/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Back-end/MICROSERVICE-PRODUCTS/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Back-end/MICROSERVICE-USERS/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Back-end/MICROSERVICE-USERS/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Back-end/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Back-end/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/MICROSERVICE-EUREKA/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/MICROSERVICE-EUREKA/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/MICROSERVICE-GETWAY/src/main/java" charset="UTF-8" />

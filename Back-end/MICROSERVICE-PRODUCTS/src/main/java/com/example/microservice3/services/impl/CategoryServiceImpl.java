@@ -2,17 +2,21 @@ package com.example.microservice3.services.impl;
 
 import com.example.microservice3.dto.CategoryDTO;
 import com.example.microservice3.dto.DeleteCategoryDTO;
+import com.example.microservice3.dto.SubCategoryDTO;
 import com.example.microservice3.dto.UpdateCategoryDTO;
 import com.example.microservice3.entities.Category;
 import com.example.microservice3.entities.SubCategory;
 import com.example.microservice3.repositories.CategoryRepository;
 import com.example.microservice3.repositories.SubCategoryRepository;
 import com.example.microservice3.services.CategoryService;
+import com.example.microservice3.utils.SubCategoryMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import com.example.microservice3.utils.CategoryMapper;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -24,6 +28,8 @@ public class CategoryServiceImpl implements CategoryService {
     private  CategoryRepository categoryRepository;
     @Autowired
     private SubCategoryRepository subCategoryRepository;
+
+
 
 
     //.................................Create .................................
@@ -56,15 +62,30 @@ public class CategoryServiceImpl implements CategoryService {
                 .collect(Collectors.toList()) ;
     }
     //.................................Search By Query.................................
-    @Override
+    /*@Override
     public List<CategoryDTO> searchCategoriesByQuery(int page, String query) {
-
-
         PageRequest pageable = PageRequest.of(page, 10);
+        String categoryName;
+        List<Category> byCategoryNameContains = categoryRepository.findByQuery(query, pageable);
+        if (byCategoryNameContains.isEmpty()) {
+            return Collections.emptyList();
+        } else {
+            List<CategoryDTO> categoryRespondDTOS = byCategoryNameContains.stream().map(category -> CategoryMapper.mapCategoryToCategoryDTO(category)).collect(Collectors.toList());
+            return categoryRespondDTOS;
+        }
+    }*/
+    @Override
+    public List<CategoryDTO> searchCategoriesByQuery(String query) {
 
-        return categoryRepository.findByQuery(query, pageable).stream()
+
+        List<CategoryDTO> collect = categoryRepository.findByQuery(query).stream()
                 .map(b -> CategoryMapper.mapCategoryToCategoryDTO(b))
-                .collect(Collectors.toList()) ;
+                .collect(Collectors.toList());
+        System.out.println("===============================================");
+        System.out.println(collect);
+        System.out.println("===============================================");
+        return collect;
+
     }
 
     //.......................................ID...................................
@@ -145,5 +166,13 @@ public class CategoryServiceImpl implements CategoryService {
 
         return deleteCategoryDTO;
     }
+
+    @Override
+    public Optional<Category> getCategoryById2(Long id) {
+        return categoryRepository.findById(id);
+    }
+
+
+
 
 }

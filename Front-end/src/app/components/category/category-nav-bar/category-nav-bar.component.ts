@@ -30,13 +30,6 @@ onNewCategory() {
 onGetAllCategory() {
 this.emitCategoryEvent(CategoryActionTypes.GET_ALL_CATEGORY);
 }
-onGetSelectedCategory() {
-  this.emitCategoryEvent(CategoryActionTypes.GET_SELECTED_CATEGORY);
-}
-
-onGetAvailableCategory() {
-  this.emitCategoryEvent(CategoryActionTypes.GET_AVAILABLE_CATEGORY);
-}
 onSearchCategory(dataForm:any) {
   this.emitCategoryEvent(CategoryActionTypes.SEARCH_CATEGORY, dataForm);
 }

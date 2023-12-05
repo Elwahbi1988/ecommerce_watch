@@ -33,21 +33,6 @@ category:any;
     );
   }
 
-  onGetSelectedCategory() {
-    this.category$ = this.categoryService.getSelectCategory().pipe(
-      map(data => ({ dataState: DataStateCategoryEnum.LOADED, data: data })),
-      startWith({ dataState: DataStateCategoryEnum.LOADING }),
-      catchError(err => of({ dataState: DataStateCategoryEnum.ERROR, errorMessage: err.message }))
-    );
-  }
-
-  onGetAvailableCategory() {
-    this.category$ = this.categoryService.getAvailableCategory().pipe(
-      map(data => ({ dataState: DataStateCategoryEnum.LOADED, data: data })),
-      startWith({ dataState: DataStateCategoryEnum.LOADING }),
-      catchError(err => of({ dataState: DataStateCategoryEnum.ERROR, errorMessage: err.message }))
-    );
-  }
 
   onSearchCategory(dataForm: any) {
     this.category$ = this.categoryService.SearchCategory(dataForm.keyword).pipe(
@@ -55,12 +40,6 @@ category:any;
       startWith({ dataState: DataStateCategoryEnum.LOADING }),
       catchError(err => of({ dataState: DataStateCategoryEnum.ERROR, errorMessage: err.message }))
     );
-  }
-
-  onSelectCategory(cat: Category) {
-    this.categoryService.selectCategory(cat).subscribe(data => {
-      cat.selected = data.selected;
-    });
   }
 
   onDeleteCategory(cat: Category) {
@@ -74,25 +53,20 @@ category:any;
   onNewCategory(){
     this.router.navigateByUrl("/newCategory");
   }
-  //onEditProduct(p: Product){
-    //this.router.navigateByUrl("EditProduct");
-  //}
 
 
 editCategory(cat: any) {
   console.log(cat);
-  this.router.navigateByUrl("/update-category/" + cat.id);
+  this.router.navigateByUrl("/category-update/" + cat._id);
 }
+
 
 
 onActionCategoryEvent($event: ActionCategoryEvent) {
  switch($event.type){
   case CategoryActionTypes.GET_ALL_CATEGORY: this.onGetAllCategory(); break;
-  case CategoryActionTypes.GET_SELECTED_CATEGORY: this.onGetSelectedCategory(); break;
-  case CategoryActionTypes.GET_AVAILABLE_CATEGORY: this.onGetAvailableCategory(); break;
   case CategoryActionTypes.SEARCH_CATEGORY: this.onSearchCategory($event.payload); break;
   case CategoryActionTypes.EDIT_CATEGORY: this.editCategory($event.payload); break;
-  case CategoryActionTypes.SELECT_CATEGORY: this.onSelectCategory($event.payload); break;
   case CategoryActionTypes.NEW_CATEGORY: this.onNewCategory(); break;
   case CategoryActionTypes.DELETE_CATEGORY: this.onDeleteCategory($event.payload); break;
  }

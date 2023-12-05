@@ -4,6 +4,7 @@ import com.example.microservice3.controllers.in.SubCategoryRequest;
 import com.example.microservice3.controllers.out.SubCategoryResponse;
 import com.example.microservice3.controllers.out.SubCategoriesResponse;
 import com.example.microservice3.dto.*;
+import com.example.microservice3.entities.SubCategory;
 import com.example.microservice3.services.SubCategoryService;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -165,6 +166,11 @@ public class SubCategoryController {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return null;
+    }
+
+    @GetMapping("/subcategories/byCategory/{categoryId}")
+    public List<SubCategory> getSubCategoriesByCategoryId(@PathVariable Long categoryId) {
+        return subCategoryService.getSubCategoriesByCategoryId(categoryId);
     }
 
 

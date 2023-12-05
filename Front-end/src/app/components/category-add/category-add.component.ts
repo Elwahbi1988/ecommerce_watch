@@ -15,10 +15,9 @@ export class CategoryAddComponent implements OnInit {
 
   ngOnInit(): void {
    this.categoryFormGroup = this.fb.group({
-id: [0,Validators.required],
+_id: [0,Validators.required],
 categoryName: ["",Validators.required],
 SubCategory: ["", Validators.required],
- selected: [true,Validators.required],
  active: [true,Validators.required],
 
   });

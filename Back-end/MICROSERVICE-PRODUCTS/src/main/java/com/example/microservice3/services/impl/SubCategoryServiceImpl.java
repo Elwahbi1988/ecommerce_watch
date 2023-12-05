@@ -238,4 +238,9 @@ public Boolean createSubCategory(SubCategoryDTO subCategoryDTO) {
         return deleteSubCategoryDTO;
     }
 
+    @Override
+    public List<SubCategory> getSubCategoriesByCategoryId(Long categoryId) {
+        return subCategoryRepository.findByCategoryId(categoryId);
+    }
+
 }

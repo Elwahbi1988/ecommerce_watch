@@ -25,6 +25,7 @@ import { SubcategoryNavBarComponent } from './components/subcategory/subcategory
 import { CategoryAddComponent } from './components/category-add/category-add.component';
 import { CategoryUpdateComponent } from './components/category-update/category-update.component';
 import { SubcategoryAddComponent } from './components/subcategory-add/subcategory-add.component';
+import { SubcategoryUpdateComponent } from './components/subcategory-update/subcategory-update.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { SubcategoryAddComponent } from './components/subcategory-add/subcategor
     CategoryAddComponent,
     CategoryUpdateComponent,
     SubcategoryAddComponent,
+    SubcategoryUpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,7 @@ import { SubcategoryAddComponent } from './components/subcategory-add/subcategor
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NgClass
+    NgClass,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],

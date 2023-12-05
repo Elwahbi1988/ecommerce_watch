@@ -27,10 +27,9 @@ export class CategoryUpdateComponent implements OnInit{
       this.categoryService.getCategory(this.categoryId).subscribe(category => {
         const Category = category.data[0];
         this.categoryFormGroup = this.fb.group({
-          id: [Category.id, Validators.required],
+          _id: [Category._id, Validators.required],
           categoryName: [Category.CategoryName, Validators.required],
-          selected: [Category.selected, Validators.required],
-          available: [Category.Active, Validators.required],
+          active: [Category.active, Validators.required],
         });
       });
     }

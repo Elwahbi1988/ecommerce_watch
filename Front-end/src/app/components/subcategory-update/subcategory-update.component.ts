@@ -13,7 +13,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 export class SubcategoryUpdateComponent implements OnInit{
   subcategoryId: any;
-  SubcategoryFormGroup?: FormGroup;
+  SubCategoryFormGroup?: FormGroup;
   public submitted: boolean = false;
 
 
@@ -29,26 +29,24 @@ export class SubcategoryUpdateComponent implements OnInit{
     if (this.subcategoryId) {
       this.subcategoryService.getSubcategory(this.subcategoryId).subscribe(subcategory => {
         const Subcategory = subcategory.data[0];
-        this.SubcategoryFormGroup = this.fb.group({
-          id: [Subcategory.id, Validators.required],
-          subcategoryName: [Subcategory.subcategoryName, Validators.required],
+        this.SubCategoryFormGroup = this.fb.group({
+          _id: [Subcategory._id, Validators.required],
+          subCategoryName: [Subcategory.subCategoryName, Validators.required],
           categoryId:[Subcategory.categoryId, Validators.required],
-          selected: [Subcategory.selected, Validators.required],
-          active: [Subcategory.Active, Validators.required],
+          active: [Subcategory.active, Validators.required],
         });
       });
     }
   }
 
   editSubcategory() {
-    if (this.subcategoryId && this.SubcategoryFormGroup) {
-      this.subcategoryService.onUpdateSubcategory(this.SubcategoryFormGroup.value)
+    if (this.subcategoryId && this.SubCategoryFormGroup) {
+      this.subcategoryService.onUpdateSubcategory(this.SubCategoryFormGroup.value)
       .subscribe(data => {
         alert("Subcategory updated successfully");
       });
     }
   }
-
 }
 
 

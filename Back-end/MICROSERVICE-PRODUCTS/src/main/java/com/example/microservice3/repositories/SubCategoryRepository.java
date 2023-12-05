@@ -18,5 +18,8 @@ public interface SubCategoryRepository extends JpaRepository<SubCategory, Long> 
     @Query("from SubCategory s where s.subCategoryName like %:query%")
     List<SubCategory> findByQuery(String query, Pageable pageable);
 
+    void deleteByCategory(Category category);
+
+    List<SubCategory> findByCategoryId(Long categoryId);
 
 }

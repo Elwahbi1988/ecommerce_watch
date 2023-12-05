@@ -6,10 +6,8 @@ export enum ProductActionTypes{
   GET_AVAILABLE_PRODUCT="[Product] Get Available products",
   SEARCH_PRODUCT="[Product] Search products",
   NEW_PRODUCT="[Product] New products",
-  SELECT_PRODUCT="[Product] Select products",
   EDIT_PRODUCT="[Product] Edit products",
   DELETE_PRODUCT="[Product] Delete product",
-
   GET_ALL_CATEGORY="[Category] Get All category",
   GET_SELECTED_CATEGORY="[Category] Get Selected category",
   GET_AVAILABLE_CATEGORY="[Category] Get Available category",

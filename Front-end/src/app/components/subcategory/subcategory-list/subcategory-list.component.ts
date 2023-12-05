@@ -26,8 +26,4 @@ export class SubcategoryListComponent {
       this.subcategoryEventEmitter.emit(
         {type: SubcategoryActionTypes.DELETE_SUBCATEGORY,payload:sub});
     }
-    onSelectSubcategory(sub: Subcategory) {
-      this.subcategoryEventEmitter.emit(
-        {type: SubcategoryActionTypes.SELECT_SUBCATEGORY,payload:sub});
-    }
   }

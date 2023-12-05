@@ -1,5 +1,5 @@
 export interface Subcategory{
-  id: number;
+  _id: number;
   subCategoryName: String;
   active: Boolean;
   categoryId: number;

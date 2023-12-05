@@ -27,7 +27,8 @@ const routes: Routes = [
   {path:"newCategory",component:CategoryAddComponent},
   {path:"category-update/:id", component: CategoryUpdateComponent },
   {path:"subcategory",component:SubcategoryComponent},
-  {path:"newSubcategory",component:SubcategoryAddComponent}
+  {path:"newSubcategory",component:SubcategoryAddComponent},
+  {path:"subcategory-update/:id", component: SubcategoryUpdateComponent }
 ];
 
 @NgModule({

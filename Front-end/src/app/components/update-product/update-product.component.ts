@@ -36,7 +36,6 @@ export class UpdateProductComponent {
           price: [product.price, Validators.required],
           discountPrice: [product.discountPrice, Validators.required],
           quantity: [product.quantity, Validators.required],
-          selected: [product.selected, Validators.required],
           available: [product.active, Validators.required],
         });
       });

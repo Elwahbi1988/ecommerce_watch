@@ -29,13 +29,6 @@ onNewSubcategory() {
 onGetAllSubcategory() {
 this.emitSubcategoryEvent(SubcategoryActionTypes.GET_ALL_SUBCATEGORY);
 }
-onGetSelectedSubcategory() {
-  this.emitSubcategoryEvent(SubcategoryActionTypes.GET_SELECTED_SUBCATEGORY);
-}
-
-onGetAvailableSubcategory() {
-  this.emitSubcategoryEvent(SubcategoryActionTypes.GET_AVAILABLE_SUBCATEGORY);
-}
 onSearchSubcategory(dataForm:any) {
   this.emitSubcategoryEvent(SubcategoryActionTypes.SEARCH_SUBCATEGORY, dataForm);
 }

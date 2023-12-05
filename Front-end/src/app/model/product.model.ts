@@ -11,5 +11,4 @@ export interface Product{
   quantity: number;
   discountPrice: number;
   active: boolean;
-  selected: boolean;
 }

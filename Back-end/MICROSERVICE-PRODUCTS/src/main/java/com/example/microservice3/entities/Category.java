@@ -13,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @Table(name = "categories")
 public class Category {
+    //@OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @Id
     @Column(name="Id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +23,7 @@ public class Category {
     @Column(name = "Active")
     private  Boolean active;
     @OneToMany(mappedBy = "category",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+
     private List<SubCategory> subcategories;
 
 }

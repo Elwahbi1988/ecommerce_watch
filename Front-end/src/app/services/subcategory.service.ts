@@ -22,16 +22,15 @@ export class SubcategoryService {
 return this.http.get<Subcategory[]>(this.host + "v1/subcategories");
   }
   SearchSubcategory(keyword:string): Observable<any>{
-    return this.http.get<any>(this.host + "v1/subcategories?query=" + keyword);
+    return this.http.get<any>(this.host + "v1/subcategories?query="+ keyword);
       }
 selectSubcategory(subcategory:any): Observable<Subcategory>{
   subcategory.selected=!subcategory.selected
-        return this.http.put<Subcategory>(this.host+"v1/subcategories/"+ subcategory.id,subcategory);
+        return this.http.put<Subcategory>(this.host+"v1/subcategories/"+ subcategory._id,subcategory);
           }
 
 deleteSubcategory(subcategory:any): Observable<void>{
-            subcategory.selected=!subcategory.selected
-                  return this.http.delete<void>(this.host+"v1/subcategories/"+ subcategory.id);
+                  return this.http.delete<void>(this.host+"v1/subcategories/"+ subcategory._id);
                     }
 
 saveSubcategory(subcategory:any): Observable<any>{
@@ -41,7 +40,7 @@ getSubcategory(id:number): Observable<any>{
 return this.http.get<Subcategory>(this.host + "v1/subcategories/" + id);
 }
 onUpdateSubcategory(subcategory: any): Observable<any> {
-  return this.http.put<any>(`${this.host}v1/subcategories/` + String(subcategory.id), subcategory);
+  return this.http.patch<any>(`${this.host}v1/subcategories/` + String(subcategory._id), subcategory);
 }
 getAllCategory(): Observable<any>{
   return this.http.get<any>(this.host + "v1/categories");

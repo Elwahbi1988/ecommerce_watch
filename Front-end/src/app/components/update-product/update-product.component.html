@@ -1,54 +1,82 @@
-<div class="container" *ngIf="productFormGroup">
-  <form [formGroup] ="productFormGroup">
-    <div class="form-group">
-      <label>SKU</label>
-      <input type="text" class="form-control" formControlName="sku">
-    </div>
-    <div class="form-group">
-      <label>Image</label>
-      <input type="text" class="form-control" formControlName="productImage">
-    </div>
-    <div class="form-group">
-      <label>Name</label>
-      <input type="text" class="form-control" formControlName="productName"
-      [ngClass]="{'is-invalid':submitted && productFormGroup.controls['productName'].errors}">
-    <div *ngIf="submitted && productFormGroup.controls['productName'].errors" class="invalid-feedback" >
-      <div *ngIf="productFormGroup.controls['productName'].errors?.['required']">Name is Required</div>"
-    </div>
-    </div>
-    <div class="form-group">
-      <label>Description</label>
-      <input type="text" class="form-control" formControlName="shortDescription">
-    </div>
-    <div class="form-group">
-      <label>subCategoryId</label>
-      <input type="text" class="form-control" formControlName="subCategoryId">
-    </div>
-    <div class="form-group">
-      <label>Long Description</label>
-      <input type="text" class="form-control" formControlName="longDescription">
-    </div>
-    <div class="form-group">
-      <label>Price</label>
-      <input type="text" class="form-control" formControlName="price">
-    </div>
-    <div class="form-group">
-      <label>Promotion</label>
-      <input type="text" class="form-control" formControlName="discountPrice">
-    </div>
-    <div class="form-group">
-      <label>Quantity</label>
-      <input type="text" class="form-control" formControlName="quantity">
-    </div>
-    <div class="form-group">
-      <label>Selected</label>
-      <input type="checkbox" formControlName="selected" class="form-check">
-    </div>
-    <div class="form-group">
-      <label>Available</label>
-      <input type="checkbox" formControlName="available" class="form-check">
-    </div>
-    <button class="btn btn-success" (click)="editProduct()">Save</button>
-  </form>
-</div>
+<div class="container" *ngIf="productFormGroup" class="mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-6 mt-4">
+  <form [formGroup]="productFormGroup" class="p-4 border rounded bg-light">
 
+    <!-- SKU Field -->
+    <div class="form-group">
+      <label for="sku">SKU</label>
+      <input type="text" class="form-control" formControlName="sku" placeholder="Enter SKU">
+    </div>
+
+    <!-- Image Field -->
+    <div class="form-group">
+      <label for="productImage">Image</label>
+      <input type="text" class="form-control" formControlName="productImage" placeholder="Enter Image URL">
+    </div>
+
+    <!-- Name Field -->
+    <div class="form-group">
+      <label for="productName">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="productName"
+        [ngClass]="{'is-invalid': submitted && productFormGroup.controls['productName'].errors}"
+        placeholder="Enter Product Name"
+      >
+      <div *ngIf="submitted && productFormGroup.controls['productName'].errors" class="invalid-feedback">
+        <div *ngIf="productFormGroup.controls['productName'].errors?.['required']">Name is Required</div>
+      </div>
+    </div>
+
+    <!-- Description Field -->
+    <div class="form-group">
+      <label for="shortDescription">Description</label>
+      <input type="text" class="form-control" formControlName="shortDescription" placeholder="Enter Description">
+    </div>
+
+    <!-- subCategoryId Field -->
+    <div class="form-group">
+      <label for="subCategoryId">SubCategory ID</label>
+      <input type="text" class="form-control" formControlName="subCategoryId" placeholder="Enter SubCategory ID">
+    </div>
+
+    <!-- Long Description Field -->
+    <div class="form-group">
+      <label for="longDescription">Long Description</label>
+      <input type="text" class="form-control" formControlName="longDescription" placeholder="Enter Long Description">
+    </div>
+
+    <!-- Price Field -->
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="text" class="form-control" formControlName="price" placeholder="Enter Price">
+    </div>
+
+    <!-- Promotion Field -->
+    <div class="form-group">
+      <label for="discountPrice">Promotion</label>
+      <input type="text" class="form-control" formControlName="discountPrice" placeholder="Enter Discount Price">
+    </div>
+
+    <!-- Quantity Field -->
+    <div class="form-group">
+      <label for="quantity">Quantity</label>
+      <input type="text" class="form-control" formControlName="quantity" placeholder="Enter Quantity">
+    </div>
+
+    <!-- Available Field (Checkbox) -->
+    <div class="form-group">
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" formControlName="available" id="available">
+        <label class="form-check-label" for="available">Available</label>
+      </div>
+    </div>
+
+  <!-- Save Button -->
+  <div class="form-group text-center mt-3">
+    <button-type class="btn btn-primary btn-lg" (click)="editProduct()">Save</button-type>
+  </div>
+</form>
+</div>

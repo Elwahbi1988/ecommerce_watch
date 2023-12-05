@@ -34,34 +34,12 @@ export class ProductsComponent implements OnInit {
     );
   }
 
-  onGetSelectedProducts() {
-    this.products$ = this.productsService.getSelectProducts().pipe(
-      map(data => ({ dataState: DataStateEnum.LOADED, data: data })),
-      startWith({ dataState: DataStateEnum.LOADING }),
-      catchError(err => of({ dataState: DataStateEnum.ERROR, errorMessage: err.message }))
-    );
-  }
-
-  onGetAvailableProducts() {
-    this.products$ = this.productsService.getAvailableProducts().pipe(
-      map(data => ({ dataState: DataStateEnum.LOADED, data: data })),
-      startWith({ dataState: DataStateEnum.LOADING }),
-      catchError(err => of({ dataState: DataStateEnum.ERROR, errorMessage: err.message }))
-    );
-  }
-
   onSearch(dataForm: any) {
     this.products$ = this.productsService.SearchProducts(dataForm.keyword).pipe(
       map(data => ({ dataState: DataStateEnum.LOADED, data: data.data })),
       startWith({ dataState: DataStateEnum.LOADING }),
       catchError(err => of({ dataState: DataStateEnum.ERROR, errorMessage: err.message }))
     );
-  }
-
-  onSelect(p: Product) {
-    this.productsService.select(p).subscribe(data => {
-      p.selected = data.selected;
-    });
   }
 
   onDelete(p: Product) {
@@ -75,28 +53,23 @@ export class ProductsComponent implements OnInit {
   onNewProduct(){
     this.router.navigateByUrl("/newProduct");
   }
-  //onEditProduct(p: Product){
-    //this.router.navigateByUrl("EditProduct");
-  //}
 
 
 editProduct(p: any) {
   console.log(p);
-  this.router.navigateByUrl("/update-product/" + p.id);
+  this.router.navigateByUrl("/update-product/" + p._id);
 }
 
 
 onActionEvent($event: ActionEvent) {
  switch($event.type){
   case ProductActionTypes.GET_ALL_PRODUCT: this.onGetAllProducts(); break;
-  case ProductActionTypes.GET_SELECTED_PRODUCT: this.onGetSelectedProducts(); break;
-  case ProductActionTypes.GET_AVAILABLE_PRODUCT: this.onGetAvailableProducts(); break;
   case ProductActionTypes.SEARCH_PRODUCT: this.onSearch($event.payload); break;
   case ProductActionTypes.EDIT_PRODUCT: this.editProduct($event.payload); break;
-  case ProductActionTypes.SELECT_PRODUCT: this.onSelect($event.payload); break;
   case ProductActionTypes.NEW_PRODUCT: this.onNewProduct(); break;
   case ProductActionTypes.DELETE_PRODUCT: this.onDelete($event.payload); break;
  }
   }
-}
+ 
+  }
 

@@ -5,9 +5,11 @@ import com.example.microservice3.dto.CategoryDTO;
 import com.example.microservice3.dto.DeleteCategoryDTO;
 import com.example.microservice3.dto.UpdateCategoryDTO;
 import com.example.microservice3.entities.Category;
+import com.example.microservice3.entities.SubCategory;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface CategoryService {
     //.................................Create .................................
@@ -17,7 +19,7 @@ public interface CategoryService {
     List<CategoryDTO> getAllCategories(int page);
 
     //.................................Search By Query.................................
-    List<CategoryDTO> searchCategoriesByQuery(int page, String query);
+    List<CategoryDTO> searchCategoriesByQuery(String query);
 
     //.......................................ID...................................
     List<CategoryDTO> getCategoryById(Long id);
@@ -27,4 +29,7 @@ public interface CategoryService {
 
     //..............................Delete..............................
     DeleteCategoryDTO deleteCategory(Long id);
+
+    Optional<Category> getCategoryById2(Long id);
+
 }

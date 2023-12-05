@@ -4,43 +4,31 @@
       Loading.....
     </ng-container>
     <ng-container *ngSwitchCase="DataStateCategoryEnum.LOADED">
-      <div class="container">
+      <div class="container mt-3">
         <table class="table">
           <thead>
             <tr>
               <th>ID</th>
-              <th>category_Name</th>
+              <th>Category Name</th>
               <th>Active</th>
-              <th>Selected</th>
-              <th>Edit</th>
-              <th>Delete</th>
+              <th>SubCategory</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let cat of result.data">
-              <td>{{cat.id}}</td>
-              <td>{{cat.categoryName}}</td>
-              <td>{{cat.active}}</td>
-              <td>{{cat.selected}}</td>
+              <td>{{ cat._id }}</td>
+              <td>{{ cat.categoryName }}</td>
+              <td>{{ cat.active }}</td>
+              <td>{{ cat.SubCategory }}</td>
               <td>
-                <button (click)="onDeleteCategory(cat)" [ngClass]="cat.selected ? 'btn-success' : 'btn-danger'" class="btn btn-sm">
-                  <span *ngIf="cat.selected">Unselect</span>
-                  <span *ngIf="!cat.selected">Select</span>
+                <button type="button" class="btn btn-danger" style="background-color: #dc3545; margin-right: 5px;" (click)="onDeleteCategory(cat)">
+                  <span class="fa fa-trash-o"></span> Delete
+                </button>
+                <button class="btn btn-info" (click)="editCategory(cat)">
+                  <span class="fa fa-edit"></span> Edit
                 </button>
               </td>
-              <td>
-                <button class="btn btn-danger" (click)="onDeleteCategory(cat)">
-                  <span class="fa fa-trash-o"></span>Delete
-                </button>
-              </td>
-              <td>
-                <button class="btn btn-danger" (click) = editCategory(cat)>
-                  Edit
-                  <span class="fa fa-edit"></span>
-                </button>
-
-              </td>
-              <td>
             </tr>
           </tbody>
         </table>
@@ -51,4 +39,3 @@
     </ng-container>
   </ng-container>
 </div>
-

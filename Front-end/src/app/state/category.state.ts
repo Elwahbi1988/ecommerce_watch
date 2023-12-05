@@ -7,7 +7,6 @@ export enum CategoryActionTypes{
   GET_AVAILABLE_CATEGORY="[Category] Get Available category",
   SEARCH_CATEGORY="[Category] Search category",
   NEW_CATEGORY="[Category] New category",
-  SELECT_CATEGORY="[Category] Select category",
   EDIT_CATEGORY="[Category] Edit category",
   DELETE_CATEGORY="[Category] Delete category",
 }

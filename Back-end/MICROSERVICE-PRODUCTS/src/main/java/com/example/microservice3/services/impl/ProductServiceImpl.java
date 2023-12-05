@@ -68,7 +68,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<ProductDTO> getAllProduct(int page) {
-        PageRequest pageable = PageRequest.of(page, 10);
+        PageRequest pageable = PageRequest.of(page, 1000);
 
         List<ProductDTO> products = productRepository.findAll(pageable)
                 .stream()
